@@ -19,7 +19,9 @@ const Body = () => {
 
   const RestaurantCardRecommended = withRecommendedLabel(RestaurantCard); // to add the recommended label to the restaurant card
 
-  const [mind, setMind] = useState();
+  const [mind, setMind] = useState([]);
+
+  const [restaurantChain, setRestaurantChain] = useState([]);
 
   // to get the data from the Swiggy's api
   useEffect(() => {
@@ -44,9 +46,15 @@ const Body = () => {
     setMind(
       jsonData?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info
     );
+
+    setRestaurantChain(
+      jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants
+    );
   };
 
   console.log(mind);
+  console.log(restaurantChain);
 
   // to check if the user is online or not
   if (status === false) return <h1> You're in Offline mode !!! </h1>;
@@ -54,11 +62,22 @@ const Body = () => {
   return listOfRestaurants?.length == 0 ? (
     <Shimmer />
   ) : (
-    //
     <div className="w-9/12 m-auto">
-      <div>
+      <h1 className=" font-bold text-2xl p-4"> What's on your mind? </h1>
+      <div className="overflow-x-auto flex">
         {mind?.map((e) => (
-          <img src={CDN_URL + e?.imageId} />
+          <img className="w-36" src={CDN_URL + e?.imageId} />
+        ))}
+      </div>
+
+      <h1 className=" font-bold text-2xl p-4 cursor-pointer">
+        {" "}
+        Top restaurant chains in chennai
+      </h1>
+
+      <div className="flex overflow-x-scroll w-screen h-full">
+        {restaurantChain?.map((e) => (
+          <RestaurantCard resData={e} />
         ))}
       </div>
 
