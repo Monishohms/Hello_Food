@@ -1,51 +1,68 @@
-- This is Namaste React
-  /\*\*
+Food Plaza - Elevating Your Fully Responsive Food Delivery Experience! 🍽️
 
-* Header
-* -logo component
-* - NAV items like home , about, cart etc...
-* Body
-* - search
-* - card-container
-*      - name of rest, delevery time, cuisine, star rating
-* Footer
-* - copyrights
-* - some links
-* restaurant info etc...
-  \*/
+Table of Contents
+Project Overview
+Tech Stack
+Key Features
+Powered by Swiggy API
+Fully Responsive Design
+Installation
+Acknowledgments
+Author
+Project Link
+Thank You
+Ex- Image
+Project Overview
+Welcome to Food Plaza, a cutting-edge food delivery app designed to revolutionize your dining experience. Get ready to enjoy seamless food ordering with a user-friendly interface and personalized features.
 
-React keeps the sync between data layer and UI layer so that if any changes made then it re-render the component automatically.
-React is doing efficient DOM manipulation so that's why react is so fast.-------this is core concept of react.
-In React we have best rendering machanisms.
+Tech Stack
+React: Frontend library for building user interfaces.
+Redux Toolkit: State management solution for React applications.
+Formik: Form library for React forms management.
+React Router: Declarative routing for React applications.
+React Redux: Official React bindings for Redux.
+React Hot Toast: Library for customizable toast notifications in React.
+Parcel: Web application bundler with fast build times.
+Babel: JavaScript compiler for transforming code.
+Key Features
+Seamless Food Ordering: Enjoy a smooth and hassle-free food ordering experience.
+User-Friendly Interface: Intuitive design for easy navigation and interaction.
+Add to Cart Feature: Personalized and efficient ordering process with the ability to add items to cart.
+Search and Filter: Easily discover restaurants using search and filter functionalities.
+Scroll Feature: Scroll to explore a diverse selection of exciting restaurants.
+Powered by Swiggy API
+Food Plaza is powered by the robust Swiggy API, providing users with access to a diverse and extensive selection of top-notch restaurants.
 
-.filter-btn{
-padding: 10px;
-margin: 10px;
-background-color: rgba(228, 218, 226, 0.6);
-cursor: pointer;
-}
-.filter-btn:hover{
-border: 1px solid black;
-cursor:pointer;
+Fully Responsive Design
+Experience Food Plaza seamlessly across all devices, from desktops to smartphones, with our fully responsive design.
 
-}
+Installation
+Follow these steps to set up and run Food Plaza locally:
 
- <ul>
-                {resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.length}
-                <h4>Bob</h4>
-                {
-                    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.map((item)=>{
-                        <div>
+Clone the Repository:
 
-                        <h4>Bob</h4>
-                        <h4>{item}</h4>
-                        </div>
+git clone https://github.com/akashdeep023/Food_Plaza.git
+cd Food_Plaza
+Install Dependencies:
 
-                    })
-                }
-                {resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.map((item)=>{
-                   return ( <li id="item?.card?.info?.id">
-                        {item?.card?.info?.name}
-                    </li> )
-               } )}
-            </ul>
+npm install
+Start the Development Server:
+
+npm start
+Open in Your Browser:
+
+Open http://localhost:3000 in your web browser.
+
+Acknowledgments
+A huge shoutout to Akshay Saini 🚀 sir for being a constant source of inspiration and guidance throughout this incredible journey! Join us on this exciting journey as we redefine the way you experience food delivery! 🌮🚀
+
+Author
+Akash Deep
+Email: ad3500476@gmail.com
+LinkedIn : https://www.linkedin.com/in/akashdeep023/
+
+Project Link
+1st Live Link
+2st Live Link
+Thank You
+Thank you for exploring Food_Plaza! Your feedback is valuable. If you have any suggestions or thoughts, feel free to share them with us. 😊
