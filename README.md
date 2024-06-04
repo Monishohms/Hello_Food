@@ -1,68 +1,45 @@
-Food Plaza - Elevating Your Fully Responsive Food Delivery Experience! 🍽️
+# Hello_Food
 
-Table of Contents
-Project Overview
-Tech Stack
-Key Features
-Powered by Swiggy API
-Fully Responsive Design
-Installation
-Acknowledgments
-Author
-Project Link
-Thank You
-Ex- Image
-Project Overview
-Welcome to Food Plaza, a cutting-edge food delivery app designed to revolutionize your dining experience. Get ready to enjoy seamless food ordering with a user-friendly interface and personalized features.
+## Elevating Your Fully Responsive Food Delivery Experience! 🍽️
 
-Tech Stack
-React: Frontend library for building user interfaces.
-Redux Toolkit: State management solution for React applications.
-Formik: Form library for React forms management.
-React Router: Declarative routing for React applications.
-React Redux: Official React bindings for Redux.
-React Hot Toast: Library for customizable toast notifications in React.
-Parcel: Web application bundler with fast build times.
-Babel: JavaScript compiler for transforming code.
-Key Features
-Seamless Food Ordering: Enjoy a smooth and hassle-free food ordering experience.
-User-Friendly Interface: Intuitive design for easy navigation and interaction.
-Add to Cart Feature: Personalized and efficient ordering process with the ability to add items to cart.
-Search and Filter: Easily discover restaurants using search and filter functionalities.
-Scroll Feature: Scroll to explore a diverse selection of exciting restaurants.
-Powered by Swiggy API
-Food Plaza is powered by the robust Swiggy API, providing users with access to a diverse and extensive selection of top-notch restaurants.
+### Table of Contents
+1. [Project Overview](#project-overview)
+2. [Tech Stack](#tech-stack)
+3. [Key Features](#key-features)
+4. [Powered by Swiggy API](#powered-by-swiggy-api)
+5. [Fully Responsive Design](#fully-responsive-design)
+6. [Installation](#installation)
 
-Fully Responsive Design
-Experience Food Plaza seamlessly across all devices, from desktops to smartphones, with our fully responsive design.
+### Project Overview
+Hello_Food is a web application designed to provide users with a seamless food ordering experience. This project utilizes HTML, CSS, and JavaScript to create an interactive and responsive platform for browsing menus, placing orders, and managing deliveries.
 
-Installation
-Follow these steps to set up and run Food Plaza locally:
+### Tech Stack
+- HTML
+- CSS
+- JavaScript
 
-Clone the Repository:
+### Key Features
+- **User-friendly Interface**: The application offers an intuitive interface for users to easily navigate through various food options and place orders effortlessly.
+- **Responsive Design**: Hello_Food is built with a fully responsive design, ensuring compatibility across different devices and screen sizes, including desktops, tablets, and smartphones.
+- **Menu Browsing**: Users can explore a wide range of food items available for ordering, categorized into different sections for easy browsing.
+- **Order Placement**: With just a few clicks, users can add items to their cart, customize orders (if applicable), and proceed to checkout.
+- **User Authentication**: Secure user authentication is implemented to ensure the safety of user accounts and personal information.
+- **Order Tracking**: Users can track the status of their orders in real-time, from confirmation to delivery.
+- **Delivery Management**: Admin users have access to manage orders, update delivery statuses, and handle any issues that may arise.
 
-git clone https://github.com/akashdeep023/Food_Plaza.git
-cd Food_Plaza
-Install Dependencies:
+### Powered by Swiggy API
+Hello_Food leverages the Swiggy API to provide users with access to a wide selection of restaurants and menu items.
 
-npm install
-Start the Development Server:
+### Fully Responsive Design
+Experience Hello_Food seamlessly across all devices, from desktops to smartphones, with our fully responsive design.
 
-npm start
-Open in Your Browser:
+### Installation
+Follow these steps to set up and run Hello_Food locally:
+1. **Clone the Repository**:
+    ```bash
+    git clone https://github.com/Monishohms/Hello_Food.git
+    cd Hello_Food
+    ```
+2. **Open `index.html` in Your Browser**:
+    Simply open the `index.html` file in your preferred web browser.
 
-Open http://localhost:3000 in your web browser.
-
-Acknowledgments
-A huge shoutout to Akshay Saini 🚀 sir for being a constant source of inspiration and guidance throughout this incredible journey! Join us on this exciting journey as we redefine the way you experience food delivery! 🌮🚀
-
-Author
-Akash Deep
-Email: ad3500476@gmail.com
-LinkedIn : https://www.linkedin.com/in/akashdeep023/
-
-Project Link
-1st Live Link
-2st Live Link
-Thank You
-Thank you for exploring Food_Plaza! Your feedback is valuable. If you have any suggestions or thoughts, feel free to share them with us. 😊
