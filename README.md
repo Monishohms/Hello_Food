@@ -1,51 +1,67 @@
-- This is Namaste React
-  /\*\*
+### Hello Food - Revolutionizing Your Seamless Food Delivery Journey!
 
-* Header
-* -logo component
-* - NAV items like home , about, cart etc...
-* Body
-* - search
-* - card-container
-*      - name of rest, delevery time, cuisine, star rating
-* Footer
-* - copyrights
-* - some links
-* restaurant info etc...
-  \*/
+### Table of Contents
 
-React keeps the sync between data layer and UI layer so that if any changes made then it re-render the component automatically.
-React is doing efficient DOM manipulation so that's why react is so fast.-------this is core concept of react.
-In React we have best rendering machanisms.
+1. [Project Overview](#project-overview)
+2. [Tech Stack](#tech-stack)
+3. [Key Features](#key-features)
+4. [Powered by Swiggy API](#powered-by-swiggy-api)
+5. [Fully Responsive Design](#fully-responsive-design)
+6. [Installation](#installation)
+7. [Author](#author)
 
-.filter-btn{
-padding: 10px;
-margin: 10px;
-background-color: rgba(228, 218, 226, 0.6);
-cursor: pointer;
-}
-.filter-btn:hover{
-border: 1px solid black;
-cursor:pointer;
+### Project Overview
 
-}
+Welcome to Hello Food, a cutting-edge food delivery app designed to revolutionize your dining experience. Get ready to enjoy seamless food ordering with a user-friendly interface and personalized features.
 
- <ul>
-                {resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.length}
-                <h4>Bob</h4>
-                {
-                    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.map((item)=>{
-                        <div>
+### Tech Stack
 
-                        <h4>Bob</h4>
-                        <h4>{item}</h4>
-                        </div>
+- React: Frontend library for building user interfaces.
+- Redux Toolkit: State management solution for React applications.
+- Formik: Form library for React forms management.
+- React Router: Declarative routing for React applications.
+- React Redux: Official React bindings for Redux.
+- React Hot Toast: Library for customizable toast notifications in React.
+- Parcel: Web application bundler with fast build times.
+- Babel: JavaScript compiler for transforming code.
 
-                    })
-                }
-                {resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.map((item)=>{
-                   return ( <li id="item?.card?.info?.id">
-                        {item?.card?.info?.name}
-                    </li> )
-               } )}
-            </ul>
+### Key Features
+
+- **Seamless Food Ordering**: Enjoy a smooth and hassle-free food ordering experience.
+- **User-Friendly Interface**: Intuitive design for easy navigation and interaction.
+- **Add to Cart Feature**: Personalized and efficient ordering process with the ability to add items to cart.
+- **Search and Filter**: Easily discover restaurants using search and filter functionalities.
+- **Scroll Feature**: Scroll to explore a diverse selection of exciting restaurants.
+
+### Powered by Swiggy API
+
+Hello Food is powered by the robust Swiggy API, providing users with access to a diverse and extensive selection of top-notch restaurants.
+
+### Fully Responsive Design
+
+Experience Hello Food seamlessly across all devices, from desktops to smartphones, with our fully responsive design.
+
+### Installation
+
+Follow these steps to set up and run Food Plaza locally:
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Monishohms/Hello_Food.git
+   cd Hello_Food
+   ```
+2. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
+3. **Start the Development Server**:
+   ```bash
+   npm start
+   ```
+4. **Open in Your Browser**:
+   Open http://localhost:3000 in your web browser.
+
+### Author
+
+- **Monish Lal**
+  - Email: monishlal2105@gmail.com
