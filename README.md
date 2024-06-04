@@ -39,7 +39,7 @@ Experience Hello Food seamlessly across all devices, from desktops to smartphone
 Follow these steps to set up and run Food Plaza locally:
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/akashdeep023/Food_Plaza.git
+    git clone https://github.com/Monishohms/Hello_Food.git
     cd Hello_Food
     ```
 2. **Install Dependencies**:
