@@ -1,5 +1,7 @@
-Hello Food - Revolutionizing Your Seamless Food Delivery Journey!
-![Visitor count](https://visitor-badge.glitch.me/badge?page_id=akashdeep023.Food_Plaza)
+
+Here's the README file for the "Food Plaza" project:
+
+Food Plaza - Elevating Your Fully Responsive Food Delivery Experience! 
 
 ### Table of Contents
 1. [Project Overview](#project-overview)
