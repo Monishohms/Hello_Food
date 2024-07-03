@@ -9,17 +9,22 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import { lazy } from "react";
 import { Suspense } from "react";
 import Shimmer from "./components/Shimmer";
+import { Provider } from "react-redux";
+import appStore from "./components/appStore";
+import YourMindInfo from "./components/YourMindInfo";
 
-const About = lazy(() => import("./components/About"));
+const About = lazy(() => import("./components/About")); // Lazy Loading of components
 const ContactUs = lazy(() => import("./components/ContactUs"));
 const Cart = lazy(() => import("./components/Cart"));
 
 const AppLayout = () => {
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <Provider store={appStore}>
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
+    </Provider>
   );
 };
 
@@ -37,8 +42,7 @@ const appRoutes = createBrowserRouter([
         path: "/about",
         element: (
           <Suspense fallback={<Shimmer />}>
-            {" "}
-            <About />{" "}
+            <About />
           </Suspense>
         ),
       },
@@ -47,8 +51,7 @@ const appRoutes = createBrowserRouter([
         path: "/contact",
         element: (
           <Suspense fallback={<Shimmer />}>
-            {" "}
-            <ContactUs />{" "}
+            <ContactUs />
           </Suspense>
         ),
       },
@@ -61,8 +64,16 @@ const appRoutes = createBrowserRouter([
         path: "/cart",
         element: (
           <Suspense fallback={<Shimmer />}>
-            {" "}
-            <Cart />{" "}
+            <Cart />
+          </Suspense>
+        ),
+      },
+
+      {
+        path: "/collections/:resId",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <YourMindInfo />
           </Suspense>
         ),
       },

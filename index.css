@@ -1,3 +1,77 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.no-scrollbar-custom::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar-custom {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none !important;
+}
+
+body::-webkit-scrollbar,
+.main-card::-webkit-scrollbar,
+#root::-webkit-scrollbar {
+  display: initial !important;
+  background-color: #f2f6fc;
+  width: 8px;
+}
+
+body::-webkit-scrollbar-thumb,
+.main-card::-webkit-scrollbar-thumb,
+#root::-webkit-scrollbar-thumb {
+  background-color: #696969;
+  border-radius: 50px;
+}
+
+#res-menu-off {
+  overflow: scroll;
+  width: 50%;
+  display: flex;
+  gap: 20px;
+  justify-content: start;
+  align-items: center;
+}
+
+#res-menu-off::-webkit-scrollbar {
+  display: none;
+}
+
+#res-menu-offbox {
+  display: flex;
+  justify-content: start;
+  min-width: 220px;
+  min-height: 60px;
+  border-radius: 5px;
+  border: 1px solid #aaaaaa;
+  border-radius: 10px;
+  box-shadow: 0px 0px 1px #00000036;
+  padding: 10px;
+  margin: 5px 0px;
+  position: relative;
+}
+
+#res-menu-offbox h4 {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  opacity: 0.9;
+}
+
+#res-menu-offbox > div h5 {
+  white-space: 3px;
+  font-size: 10px;
+  margin-top: 3px;
+  letter-spacing: -0.3px;
+  opacity: 0.6;
+}

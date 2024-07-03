@@ -1,6 +1,5 @@
 import ItemList from "./ItemList";
-import { BsFillCaretDownFill } from "react-icons/bs";
-
+import { IoIosArrowDropdown } from "react-icons/io";
 const RestaurantNestedCategory = ({ data, showItem, SetShowIndex }) => {
   const handleClick = () => {
     SetShowIndex();
@@ -15,7 +14,7 @@ const RestaurantNestedCategory = ({ data, showItem, SetShowIndex }) => {
         >
           <span className="font-bold text-lg">{data.title}</span>
           <span>
-            <BsFillCaretDownFill className="text-orange-500 text-2xl" />
+            <IoIosArrowDropdown className="text-2xl" />
           </span>
         </div>
 

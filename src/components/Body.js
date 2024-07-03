@@ -3,12 +3,14 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { IoClose } from "react-icons/io5";
 import { withRecommendedLabel } from "./RestaurantCard";
 import { SWIGGY_API } from "../utils/constants";
 import YourMind from "./YourMind";
-import { CDN_URL } from "../utils/constants";
+import { CgSearch } from "react-icons/cg";
 
 const Body = () => {
+  const [allRestaurant, setAllRestaurant] = useState([]); // All Restaurant Data
   const [listOfRestaurants, setListOfRestaurants] = useState([]); // original list of restaurants
 
   const [filteredRestaurants, setFilteredfRestaurants] = useState([]); //make a copy of listOfRestaurants for searching/filtering restaurants
@@ -23,6 +25,8 @@ const Body = () => {
 
   const [restaurantChain, setRestaurantChain] = useState([]);
 
+  const [filter, setFilter] = useState("null"); // To undo applied filter
+
   // to get the data from the Swiggy's api
   useEffect(() => {
     fetchData();
@@ -31,7 +35,9 @@ const Body = () => {
   const fetchData = async () => {
     const response = await fetch(SWIGGY_API);
     const jsonData = await response.json();
-    console.log(jsonData.data);
+    console.log(jsonData?.data?.cards);
+
+    setAllRestaurant(jsonData);
 
     setListOfRestaurants(
       jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
@@ -42,7 +48,6 @@ const Body = () => {
         ?.restaurants
     );
 
-    //console.log(jsonData?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info);
     setMind(
       jsonData?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info
     );
@@ -53,9 +58,6 @@ const Body = () => {
     );
   };
 
-  console.log(mind);
-  console.log(restaurantChain);
-
   // to check if the user is online or not
   if (status === false) return <h1> You're in Offline mode !!! </h1>;
 
@@ -63,35 +65,49 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="w-9/12 m-auto">
-      <h1 className=" font-bold text-2xl p-4"> What's on your mind? </h1>
-      <div className="overflow-x-auto flex">
+      <h1 className=" font-bold text-2xl p-4">
+        {allRestaurant?.data?.cards[0]?.card?.card?.header?.title}
+      </h1>
+      <div className="overflow-x-scroll  no-scrollbar-custom  flex w-[100%]">
         {mind?.map((e) => (
-          <img className="w-36" src={CDN_URL + e?.imageId} />
+          <YourMind
+            imageId={e?.imageId}
+            link={e?.action?.link}
+            name={e?.action?.text}
+          />
         ))}
       </div>
+      <hr className="topBrandHr" />
 
       <h1 className=" font-bold text-2xl p-4 cursor-pointer">
-        {" "}
-        Top restaurant chains in chennai
+        {allRestaurant?.data?.cards[1]?.card?.card?.header?.title}
       </h1>
 
-      <div className="flex overflow-x-scroll w-screen h-full">
+      <div className="flex overflow-x-scroll  no-scrollbar-custom  w-[100%]">
         {restaurantChain?.map((e) => (
-          <RestaurantCard resData={e} />
+          <Link to={"/restaurant/" + e?.info?.id}>
+            <RestaurantCard resData={e} />
+          </Link>
         ))}
       </div>
+      <hr className="topBrandHr" />
 
-      <div className="flex items-center p-4 m-4">
-        <div className=" rounded-l-2xl border-black">
+      <p className=" font-bold text-2xl p-4">
+        {allRestaurant?.data?.cards[2]?.card?.card?.title}
+      </p>
+
+      <div className="flex items-center ">
+        <div className="flex items-center rounded-xl shadow-lg border-black">
           <input
+            placeholder="Search Restaurant..."
             type="text"
-            className="rounded-lg border border-black"
+            className="p-2 rounded-l-xl   text-center w-full  outline-none border border-yellow-300"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
 
           <button
-            className=" p-2 m-2 font-semibold hover:text-orange-500"
+            className=" font-semibold rounded-r-xl bg-yellow-100 hover:bg-yellow-200 active:bg-yellow-300 border border-yellow-300 "
             onClick={() => {
               const filteredRestaurant = listOfRestaurants.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -101,23 +117,139 @@ const Body = () => {
           >
             {/*Filter the RestaurantCard and update the util
                     for that we need search text */}
-            Search{" "}
+            <CgSearch className="text-3xl m-1" />
           </button>
         </div>
 
-        <div className="filter">
+        <div>
           <button
-            className="p-4 m-4 hover:text-orange-500 font-semibold"
+            className="p-2 m-4 font-normal bg-yellow-50 rounded-2xl shadow-lg  focus:bg-yellow-200  hover:bg-yellow-100 focus:font-semibold         
+            flex items-center"
             onClick={() => {
-              const filteredList = listOfRestaurants?.filter(
-                (res) => res.info.avgRating > 4
-              );
-              setFilteredfRestaurants(filteredList);
-              console.log("button was clicked");
+              if (filter == "top") {
+                setFilter("null");
+                setFilteredfRestaurants(listOfRestaurants);
+              } else {
+                const filteredList = listOfRestaurants?.filter(
+                  (res) => res.info.avgRating >= 4.4
+                );
+                setFilteredfRestaurants(filteredList);
+                setFilter("top");
+              }
             }}
           >
-            {" "}
-            Top Rated Restaurant{" "}
+            Ratings 4.4+
+            {filter === "top" && <IoClose className=" m-1 cursor-pointer " />}
+          </button>
+        </div>
+
+        <div>
+          <button
+            className="p-2 m-4 font-normal bg-yellow-50 rounded-2xl shadow-lg  focus:bg-yellow-200 hover:bg-yellow-100 focus:font-semibold         
+            flex items-center"
+            onClick={() => {
+              if (filter == "fast") {
+                setFilter("null");
+                setFilteredfRestaurants(listOfRestaurants);
+              } else {
+                const filteredList = listOfRestaurants?.filter(
+                  (res) => res?.info?.sla?.deliveryTime <= 30
+                );
+                setFilteredfRestaurants(filteredList);
+                setFilter("fast");
+              }
+            }}
+          >
+            Fast Delivery
+            {filter === "fast" && <IoClose className="  m-1 " />}
+          </button>
+        </div>
+
+        <div>
+          <button
+            className="p-2 m-4 font-normal bg-yellow-50 rounded-2xl shadow-lg  focus:bg-yellow-200 hover:bg-yellow-100 focus:font-semibold         
+            flex items-center"
+            onClick={() => {
+              if (filter == "lessthan") {
+                setFilter("null");
+                setFilteredfRestaurants(listOfRestaurants);
+              } else {
+                const filteredList = listOfRestaurants?.filter(
+                  (res) =>
+                    res?.info?.costForTwo?.includes("100") ||
+                    res?.info?.costForTwo?.includes("125") ||
+                    res?.info?.costForTwo?.includes("150") ||
+                    res?.info?.costForTwo?.includes("175") ||
+                    res?.info?.costForTwo?.includes("200") ||
+                    res?.info?.costForTwo?.includes("225") ||
+                    res?.info?.costForTwo?.includes("250") ||
+                    res?.info?.costForTwo?.includes("275") ||
+                    res?.info?.costForTwo?.includes("300")
+                );
+                setFilteredfRestaurants(filteredList);
+                setFilter("lessthan");
+              }
+            }}
+          >
+            Less than Rs.300
+            {filter === "lessthan" && <IoClose className="  m-1 " />}
+          </button>
+        </div>
+
+        <div>
+          <button
+            className="p-2 m-4 font-normal bg-yellow-50 rounded-2xl shadow-lg  focus:bg-yellow-200 hover:bg-yellow-100 focus:font-semibold         
+            flex items-center"
+            onClick={() => {
+              if (filter == "300to600") {
+                setFilter("null");
+                setFilteredfRestaurants(listOfRestaurants);
+              } else {
+                const filteredList = listOfRestaurants?.filter(
+                  (res) =>
+                    res?.info?.costForTwo?.includes("300") ||
+                    res?.info?.costForTwo?.includes("325") ||
+                    res?.info?.costForTwo?.includes("350") ||
+                    res?.info?.costForTwo?.includes("375") ||
+                    res?.info?.costForTwo?.includes("400") ||
+                    res?.info?.costForTwo?.includes("425") ||
+                    res?.info?.costForTwo?.includes("450") ||
+                    res?.info?.costForTwo?.includes("475") ||
+                    res?.info?.costForTwo?.includes("500") ||
+                    res?.info?.costForTwo?.includes("525") ||
+                    res?.info?.costForTwo?.includes("550") ||
+                    res?.info?.costForTwo?.includes("575") ||
+                    res?.info?.costForTwo?.includes("600")
+                );
+                setFilteredfRestaurants(filteredList);
+                setFilter("300to600");
+              }
+            }}
+          >
+            Rs.300-Rs.600
+            {filter === "300to600" && <IoClose className="  m-1 " />}
+          </button>
+        </div>
+
+        <div>
+          <button
+            className="p-2 m-4 font-normal bg-yellow-50 rounded-2xl shadow-lg focus:bg-yellow-200 hover:bg-yellow-100 focus:font-semibold         
+            flex items-center"
+            onClick={() => {
+              if (filter == "hot") {
+                setFilter("null");
+                setFilteredfRestaurants(listOfRestaurants);
+              } else {
+                const filteredList = listOfRestaurants?.filter((res) =>
+                  res?.info?.aggregatedDiscountInfoV3?.header?.includes("OFF")
+                );
+                setFilteredfRestaurants(filteredList);
+                setFilter("hot");
+              }
+            }}
+          >
+            Hot Offers
+            {filter === "hot" && <IoClose className=" m-1 " />}
           </button>
         </div>
       </div>
