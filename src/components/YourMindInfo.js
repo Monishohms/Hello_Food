@@ -17,12 +17,11 @@ const YourMindInfo = () => {
         "&tags=&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
     );
     const json = await data.json();
-    setCollectionData(json.data.cards);
+    setCollectionData(json?.data?.cards);
   };
 
   return (
     <div className="w-9/12 m-auto">
-      {console.log(collectionData)}
       <p className="text-4xl font-semibold pt-8 ">
         {collectionData[0]?.card?.card?.title}
       </p>

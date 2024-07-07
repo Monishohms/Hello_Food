@@ -3,7 +3,7 @@ import { IoIosArrowDropdown } from "react-icons/io";
 
 // ** accordions **
 
-const RestaurantCategory = ({ data, showItem, SetShowIndex }) => {
+const RestaurantCategory = ({ resInfo, data, showItem, SetShowIndex }) => {
   const handleClick = () => {
     SetShowIndex();
   };
@@ -27,7 +27,7 @@ const RestaurantCategory = ({ data, showItem, SetShowIndex }) => {
 
         {/* ** accordions body ** */}
 
-        {showItem && <ItemList item={data?.itemCards} />}
+        {showItem && <ItemList resInfo={resInfo} item={data?.itemCards} />}
       </div>
     </div>
   );

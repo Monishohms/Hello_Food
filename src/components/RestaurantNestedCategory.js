@@ -1,6 +1,11 @@
 import ItemList from "./ItemList";
 import { IoIosArrowDropdown } from "react-icons/io";
-const RestaurantNestedCategory = ({ data, showItem, SetShowIndex }) => {
+const RestaurantNestedCategory = ({
+  resInfo,
+  data,
+  showItem,
+  SetShowIndex,
+}) => {
   const handleClick = () => {
     SetShowIndex();
   };
@@ -19,7 +24,7 @@ const RestaurantNestedCategory = ({ data, showItem, SetShowIndex }) => {
         </div>
 
         {data?.categories.map(
-          (c) => showItem && <ItemList item={c.itemCards} />
+          (c) => showItem && <ItemList resInfo={resInfo} item={c.itemCards} />
         )}
       </div>
     </div>

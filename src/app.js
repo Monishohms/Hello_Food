@@ -12,10 +12,13 @@ import Shimmer from "./components/Shimmer";
 import { Provider } from "react-redux";
 import appStore from "./components/appStore";
 import YourMindInfo from "./components/YourMindInfo";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Cart from "./components/Cart";
+import SuccessPayment from "./components/SuccessPayment";
 
 const About = lazy(() => import("./components/About")); // Lazy Loading of components
 const ContactUs = lazy(() => import("./components/ContactUs"));
-const Cart = lazy(() => import("./components/Cart"));
 
 const AppLayout = () => {
   return (
@@ -23,6 +26,7 @@ const AppLayout = () => {
       <div className="app">
         <Header />
         <Outlet />
+        <ToastContainer />
       </div>
     </Provider>
   );
@@ -62,11 +66,11 @@ const appRoutes = createBrowserRouter([
 
       {
         path: "/cart",
-        element: (
-          <Suspense fallback={<Shimmer />}>
-            <Cart />
-          </Suspense>
-        ),
+        element: <Cart />,
+      },
+      {
+        path: "/successpayment",
+        element: <SuccessPayment />,
       },
 
       {
@@ -78,6 +82,7 @@ const appRoutes = createBrowserRouter([
         ),
       },
     ],
+
     errorElement: <Error />,
   },
 ]);

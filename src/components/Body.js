@@ -35,7 +35,7 @@ const Body = () => {
   const fetchData = async () => {
     const response = await fetch(SWIGGY_API);
     const jsonData = await response.json();
-    console.log(jsonData?.data?.cards);
+    //console.log(jsonData?.data?.cards);
 
     setAllRestaurant(jsonData);
 
@@ -97,17 +97,17 @@ const Body = () => {
       </p>
 
       <div className="flex items-center ">
-        <div className="flex items-center rounded-xl shadow-lg border-black">
+        <div className="flex items-center rounded-xl shadow-lg border ">
           <input
             placeholder="Search Restaurant..."
             type="text"
-            className="p-2 rounded-l-xl   text-center w-full  outline-none border border-yellow-300"
+            className="p-2 rounded-l-xl   text-center w-full  outline-none border border-gray-200 "
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
 
           <button
-            className=" font-semibold rounded-r-xl bg-yellow-100 hover:bg-yellow-200 active:bg-yellow-300 border border-yellow-300 "
+            className=" font-semibold rounded-r-xl shadow-xl bg-gray-200  border"
             onClick={() => {
               const filteredRestaurant = listOfRestaurants.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -123,8 +123,7 @@ const Body = () => {
 
         <div>
           <button
-            className="p-2 m-4 font-normal bg-yellow-50 rounded-2xl shadow-lg  focus:bg-yellow-200  hover:bg-yellow-100 focus:font-semibold         
-            flex items-center"
+            className="p-2 m-4 font-normal border  rounded-2xl shadow-xl focus:bg-gray-200 focus:font-semibold focus:border-black flex items-center"
             onClick={() => {
               if (filter == "top") {
                 setFilter("null");
@@ -145,8 +144,7 @@ const Body = () => {
 
         <div>
           <button
-            className="p-2 m-4 font-normal bg-yellow-50 rounded-2xl shadow-lg  focus:bg-yellow-200 hover:bg-yellow-100 focus:font-semibold         
-            flex items-center"
+            className="p-2 m-4 font-normal border  rounded-2xl shadow-xl focus:bg-gray-200 focus:font-semibold flex items-center focus:border-black"
             onClick={() => {
               if (filter == "fast") {
                 setFilter("null");
@@ -167,8 +165,7 @@ const Body = () => {
 
         <div>
           <button
-            className="p-2 m-4 font-normal bg-yellow-50 rounded-2xl shadow-lg  focus:bg-yellow-200 hover:bg-yellow-100 focus:font-semibold         
-            flex items-center"
+            className="p-2 m-4 font-normal border  rounded-2xl shadow-xl focus:bg-gray-200 focus:font-semibold flex items-center focus:border-black"
             onClick={() => {
               if (filter == "lessthan") {
                 setFilter("null");
@@ -198,8 +195,7 @@ const Body = () => {
 
         <div>
           <button
-            className="p-2 m-4 font-normal bg-yellow-50 rounded-2xl shadow-lg  focus:bg-yellow-200 hover:bg-yellow-100 focus:font-semibold         
-            flex items-center"
+            className="p-2 m-4 font-normal border  rounded-2xl shadow-xl focus:bg-gray-200 focus:font-semibold flex items-center focus:border-black"
             onClick={() => {
               if (filter == "300to600") {
                 setFilter("null");
@@ -233,8 +229,7 @@ const Body = () => {
 
         <div>
           <button
-            className="p-2 m-4 font-normal bg-yellow-50 rounded-2xl shadow-lg focus:bg-yellow-200 hover:bg-yellow-100 focus:font-semibold         
-            flex items-center"
+            className="p-2 m-4 font-normal border  rounded-2xl shadow-xl focus:bg-gray-200 focus:font-semibold flex items-center focus:border-black"
             onClick={() => {
               if (filter == "hot") {
                 setFilter("null");

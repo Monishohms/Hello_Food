@@ -35,8 +35,8 @@ export const withRecommendedLabel = (RestaurantCard) => {
   return (props) => {
     return (
       <div>
-        <label className="absolute bg-orange-300 text-black font-semibold rounded-xl p-1 ">
-          Sponsored
+        <label className="absolute bg-gray-100 text-black font-semibold rounded-lg border p-1 ">
+          Bestseller
         </label>
         <RestaurantCard {...props} />
       </div>
