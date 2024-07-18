@@ -8,6 +8,9 @@ import { withRecommendedLabel } from "./RestaurantCard";
 import { SWIGGY_API } from "../utils/constants";
 import YourMind from "./YourMind";
 import { CgSearch } from "react-icons/cg";
+import { IoIosArrowDropupCircle } from "react-icons/io";
+import { TfiArrowCircleRight } from "react-icons/tfi";
+import { TfiArrowCircleLeft } from "react-icons/tfi";
 
 const Body = () => {
   const [allRestaurant, setAllRestaurant] = useState([]); // All Restaurant Data
@@ -65,9 +68,16 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="w-9/12 m-auto">
-      <h1 className=" font-bold text-2xl p-4">
-        {allRestaurant?.data?.cards[0]?.card?.card?.header?.title}
-      </h1>
+      <span className="flex items-center justify-between mt-4">
+        <h1 className=" font-bold text-2xl p-4">
+          {allRestaurant?.data?.cards[0]?.card?.card?.header?.title}
+        </h1>
+        <span className=" flex items-center justify-end">
+          <TfiArrowCircleLeft className="mr-4 text-3xl cursor-pointer" />
+          <TfiArrowCircleRight className=" text-3xl cursor-pointer" />
+        </span>
+      </span>
+
       <div className="overflow-x-scroll  no-scrollbar-custom  flex w-[100%]">
         {mind?.map((e) => (
           <YourMind
@@ -78,12 +88,17 @@ const Body = () => {
         ))}
       </div>
       <hr className="topBrandHr" />
+      <span className="flex items-center justify-between mt-10">
+        <h1 className=" font-bold text-2xl p-4 cursor-pointer">
+          {allRestaurant?.data?.cards[1]?.card?.card?.header?.title}
+        </h1>
+        <span className=" flex items-center justify-end ">
+          <TfiArrowCircleLeft className="mr-4 text-3xl cursor-pointer " />
+          <TfiArrowCircleRight className=" text-3xl cursor-pointer" />
+        </span>
+      </span>
 
-      <h1 className=" font-bold text-2xl p-4 cursor-pointer">
-        {allRestaurant?.data?.cards[1]?.card?.card?.header?.title}
-      </h1>
-
-      <div className="flex overflow-x-scroll  no-scrollbar-custom  w-[100%]">
+      <div className="flex overflow-x-scroll  no-scrollbar-custom  w-[100%] mb-12">
         {restaurantChain?.map((e) => (
           <Link to={"/restaurant/" + e?.info?.id}>
             <RestaurantCard resData={e} />
@@ -97,17 +112,17 @@ const Body = () => {
       </p>
 
       <div className="flex items-center ">
-        <div className="flex items-center rounded-xl shadow-lg border ">
+        <div className="flex items-center rounded-xl  mr-2 ">
           <input
-            placeholder="Search Restaurant..."
             type="text"
-            className="p-2 rounded-l-xl   text-center w-full  outline-none border border-gray-200 "
+            placeholder="Search Restaurant..."
+            className="p-2 rounded-l-xl px-10   text-center w-full shadow-lg outline-none border-orange-500 "
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
 
           <button
-            className=" font-semibold rounded-r-xl shadow-xl bg-gray-200  border"
+            className=" font-semibold rounded-r-xl shadow-lg px-2 outline-none border-orange-500 bg-orange-500"
             onClick={() => {
               const filteredRestaurant = listOfRestaurants.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -123,7 +138,7 @@ const Body = () => {
 
         <div>
           <button
-            className="p-2 m-4 font-normal border  rounded-2xl shadow-xl focus:bg-gray-200 focus:font-semibold focus:border-black flex items-center"
+            className="px-4 py-2 m-4 mr-2 font-medium border rounded-xl shadow-lg  flex items-center focus:border-black"
             onClick={() => {
               if (filter == "top") {
                 setFilter("null");
@@ -144,7 +159,7 @@ const Body = () => {
 
         <div>
           <button
-            className="p-2 m-4 font-normal border  rounded-2xl shadow-xl focus:bg-gray-200 focus:font-semibold flex items-center focus:border-black"
+            className="px-4 py-2 m-4 mr-2 font-medium border rounded-xl shadow-lg flex items-center focus:border-black"
             onClick={() => {
               if (filter == "fast") {
                 setFilter("null");
@@ -165,7 +180,7 @@ const Body = () => {
 
         <div>
           <button
-            className="p-2 m-4 font-normal border  rounded-2xl shadow-xl focus:bg-gray-200 focus:font-semibold flex items-center focus:border-black"
+            className="px-4 py-2 m-4 mr-2  font-medium border  rounded-xl shadow-lg focus:border-black flex items-center "
             onClick={() => {
               if (filter == "lessthan") {
                 setFilter("null");
@@ -195,7 +210,7 @@ const Body = () => {
 
         <div>
           <button
-            className="p-2 m-4 font-normal border  rounded-2xl shadow-xl focus:bg-gray-200 focus:font-semibold flex items-center focus:border-black"
+            className="px-4 py-2 m-4 mr-2 font-medium border  rounded-xl shadow-lg focus:border-black flex items-center "
             onClick={() => {
               if (filter == "300to600") {
                 setFilter("null");
@@ -229,7 +244,7 @@ const Body = () => {
 
         <div>
           <button
-            className="p-2 m-4 font-normal border  rounded-2xl shadow-xl focus:bg-gray-200 focus:font-semibold flex items-center focus:border-black"
+            className="px-4 py-2 m-4 mr-2 font-medium border  rounded-xl shadow-lg  flex items-center focus:border-black"
             onClick={() => {
               if (filter == "hot") {
                 setFilter("null");
@@ -264,6 +279,9 @@ const Body = () => {
           </Link>
         ))}
       </div>
+      <a href="#" className="fixed bottom-0 right-0 m-12">
+        <IoIosArrowDropupCircle className="text-5xl text-orange-500 cursor-pointer" />
+      </a>
     </div>
   );
 };

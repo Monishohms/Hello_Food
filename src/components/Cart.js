@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { IoIosArrowDropupCircle } from "react-icons/io";
 import { CDN_URL } from "../utils/constants";
 import { decreaseCount, increaseCount, clearCart } from "./CartSlice";
 import { Link } from "react-router-dom";
@@ -34,6 +35,9 @@ const Cart = () => {
 
   return (
     <div className="w-8/12 text-center px-48 py-10 m-auto ">
+      <a href="#" className="fixed bottom-0 right-0 m-12">
+        <IoIosArrowDropupCircle className="text-5xl text-orange-500 cursor-pointer" />
+      </a>
       {cartItem?.restaurant != null && (
         <h1 className="text-4xl font-bold mb-2">Cart</h1>
       )}
@@ -47,10 +51,14 @@ const Cart = () => {
                 className="w-32 h-32 shadow-xl rounded-lg "
               />
               <div className="flex flex-col items-start ml-4">
-                <span className="font-semibold text-xl">
+                <span className="font-semibold text-2xl">
                   {cartItem?.restaurant?.name}
                 </span>
-                <span className="font-normal">
+                <span className="font-normal flex items-center">
+                  <img
+                    src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_25,h_25/equitable_serviceability/es-icons/es-location-icon.png"
+                    className="m-1"
+                  />
                   {cartItem?.restaurant?.locality}
                 </span>
               </div>
@@ -110,7 +118,7 @@ const Cart = () => {
 
           <div className="flex items-center justify-center ">
             <button
-              className=" border  text-sm cursor-pointer text-orange-500 font-semibold  p-3 m-2 mt-6 mr-35 rounded-xl shadow-xl "
+              className=" border  text-sm cursor-pointer text-orange-500 font-bold  p-3 m-2 mt-6 mr-35 rounded-xl shadow-xl "
               onClick={clearItem}
             >
               Clear Cart
@@ -120,7 +128,7 @@ const Cart = () => {
             <div className="p-2 m-2 ">
               <input
                 type="checkbox"
-                className="w-5 h-5 "
+                className="w-5 h-5 cursor-pointer "
                 onClick={() => {
                   setContent(true);
                   if (content === true) setContent(false);
@@ -173,6 +181,7 @@ const Cart = () => {
             <button
               className="cursor-pointer text-orange-500 rounded-xl shadow-2xl font-bold  border p-2 m-2 shadow-orange-500"
               onClick={() => {
+                confirm("Would you like to confirm your order!");
                 const toastId = toast.loading("Processing your payment", {
                   position: "top-center",
                   theme: "dark",
@@ -194,6 +203,7 @@ const Cart = () => {
             >
               TO PAY
             </button>
+
             <p className="mr-6 font-bold">
               ₹
               {total +

@@ -5,6 +5,7 @@ import { BsCurrencyRupee } from "react-icons/bs";
 import { MdOutlineStarPurple500 } from "react-icons/md";
 import { toast } from "react-toastify";
 import { IoSparklesSharp } from "react-icons/io5";
+import { IoIosArrowDropupCircle } from "react-icons/io";
 
 const ItemList = ({ resInfo, item }) => {
   const resData = resInfo?.cards[2]?.card?.card?.info;
@@ -41,7 +42,7 @@ const ItemList = ({ resInfo, item }) => {
   return (
     <div>
       {item.map((i) => (
-        <div className=" m-2  border-gray-200 border-b-2 text-left flex justify-between">
+        <div className=" m-2  border-gray-200 border-b-2 text-left flex justify-between items-center">
           <div className="w-9/12">
             <span className="flex items-center text-center pl-1">
               {i?.card?.info?.itemAttribute?.vegClassifier === "NONVEG" ? (
@@ -79,7 +80,7 @@ const ItemList = ({ resInfo, item }) => {
               /-
             </p>
             <span className="flex items-center my-1 text-sm font-medium text-green-700">
-              <MdOutlineStarPurple500 className=" text-green-700 text-lg mr-1 " />
+              <MdOutlineStarPurple500 className=" text-green-700 text-lg mr-1 mt-1 mb-1" />
               {i?.card?.info?.ratings?.aggregatedRating?.rating == null
                 ? 4.2
                 : i?.card?.info?.ratings?.aggregatedRating?.rating}
@@ -89,18 +90,31 @@ const ItemList = ({ resInfo, item }) => {
               )
             </span>
 
-            <p className="font-semibold opacity-65 pb-2 pl-1 ">
+            <p className="font-semibold opacity-65 pb-2 pl-1 mb-8 mr-9 mt-1">
               {i?.card?.info?.description}
             </p>
           </div>
 
-          <div className="w-3/12 ">
+          <div className="w-3/12 flex pb-6">
+            <div>
+              {i?.card?.info?.imageId == null ? (
+                <img
+                  src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/m/red_placeholder"
+                  className=" w-full h-40 rounded-xl shadow-xl "
+                />
+              ) : (
+                <img
+                  src={CDN_URL + i?.card?.info?.imageId}
+                  className=" w-60 h-40 rounded-xl shadow-xl "
+                />
+              )}
+            </div>
             <div className="absolute">
               {itemsCart?.items?.filter(
                 (item) => item[0]?.id == i?.card?.info?.id
               ).length == 0 ? (
                 <button
-                  className="text-orange-500 font-bold bg-white px-9 py-2 rounded-xl shadow-lg mx-10 my-70 cursor-pointer"
+                  className=" text-orange-500 font-bold bg-white px-9 py-1.5 rounded-xl cursor-pointer my-36  mx-8 border hover:bg-gray-200"
                   onClick={() => {
                     dispatch(() => {
                       addFood(i?.card?.info);
@@ -110,9 +124,9 @@ const ItemList = ({ resInfo, item }) => {
                   ADD
                 </button>
               ) : (
-                <span className="flex items-center justify-evenly text-orange-500 font-bold bg-white px-4 py-2 rounded-xl shadow-lg mx-10 my-70">
+                <span className="flex items-center justify-evenly text-orange-500 font-bold bg-white px-4 py-1.5 rounded-xl my-36 mx-8 border">
                   <button
-                    className="cursor-pointer"
+                    className="cursor-pointer  "
                     onClick={() => {
                       decreaseItem(i?.card?.info?.id);
                     }}
@@ -127,7 +141,7 @@ const ItemList = ({ resInfo, item }) => {
                     }
                   </span>
                   <button
-                    className="cursor-pointer"
+                    className="cursor-pointer "
                     onClick={() => {
                       increaseItem(i?.card?.info?.id);
                     }}
@@ -137,13 +151,12 @@ const ItemList = ({ resInfo, item }) => {
                 </span>
               )}
             </div>
-            <img
-              src={CDN_URL + i?.card?.info?.imageId}
-              className=" m-1 w-full h-40 rounded-xl shadow-xl "
-            />
           </div>
         </div>
       ))}
+      <a href="#" className="fixed bottom-0 right-0 m-12">
+        <IoIosArrowDropupCircle className="text-5xl text-orange-500 cursor-pointer scroll-smooth" />
+      </a>
     </div>
   );
 };

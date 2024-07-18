@@ -8,11 +8,13 @@ import { TiContacts } from "react-icons/ti";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import { FaRegCircleXmark } from "react-icons/fa6";
 import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
   const onlineStatus = useOnlineStatus();
   const itemCart = useSelector((store) => store.cart.items);
+
   return (
     <div className=" flex justify-between shadow-lg font-semibold  ">
       <div className="image-container">
@@ -69,15 +71,19 @@ const Header = () => {
             </span>
           </div>
 
-          <button
-            className="px-5 hover:text-orange-600 flex items-center"
-            onClick={() => {
-              btnName === "Login" ? setBtnName("Log-out") : setBtnName("Login");
-            }}
-          >
-            <FaRegUser className="m-1 text-xl" />
-            {btnName}
-          </button>
+          <Link to={"/login"}>
+            <button
+              className="px-5 hover:text-orange-600 flex items-center"
+              onClick={() => {
+                btnName === "Login"
+                  ? setBtnName("Log-out")
+                  : setBtnName("Login");
+              }}
+            >
+              <FaRegUser className="m-1 text-xl" />
+              {btnName}
+            </button>
+          </Link>
         </React.Fragment>
       </div>
     </div>

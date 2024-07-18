@@ -1,5 +1,6 @@
 import ItemList from "./ItemList";
-import { IoIosArrowDropdown } from "react-icons/io";
+import { RiArrowDownSLine } from "react-icons/ri";
+
 const RestaurantNestedCategory = ({
   resInfo,
   data,
@@ -14,12 +15,12 @@ const RestaurantNestedCategory = ({
     <div>
       <div className="shadow-lg w-6/12 mx-auto my-4 text-center">
         <div
-          className="flex justify-between cursor-pointer"
+          className="flex justify-between cursor-pointer py-3 my-2 px-4"
           onClick={handleClick}
         >
           <span className="font-bold text-lg">{data.title}</span>
           <span>
-            <IoIosArrowDropdown className="text-2xl" />
+            <RiArrowDownSLine className="text-3xl cursor-pointer" />
           </span>
         </div>
 

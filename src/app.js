@@ -15,6 +15,7 @@ import YourMindInfo from "./components/YourMindInfo";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Cart from "./components/Cart";
+import Login from "./components/Login";
 
 const About = lazy(() => import("./components/About")); // Lazy Loading of components
 const ContactUs = lazy(() => import("./components/ContactUs"));
@@ -66,6 +67,10 @@ const appRoutes = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
 
       {

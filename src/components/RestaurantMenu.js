@@ -110,29 +110,3 @@ const restaurantMenu = () => {
 };
 
 export default restaurantMenu;
-
-// map method return karta hai ok
-
-// or jab hum ex -
-// /ab doneo sahi hai
-// ye karte hai to return nhi karta hai kyo ki humne return hi nhi kiya agar isme { }  ye ho to isse hume return kartana parta hai
-// items.map((item)=>{
-// console.log("hi hello ")
-
-//return  <h4>hello<h4>
-// })
-
-// iss tarah nhi to isse hum direct likhte hai
-// ye ab direct return karega ok done
-// items.map((item)=>
-//  <h4>hello<h4>
-// )
-
-// done
-
-// aa rha hai na
-
-// jab hume kuch or check karna hota hai jaise consolog karana hota hai to hum ak sath do ko nhi likh sakte hai kyo ki ak hi return hota hai do nhi issi liye hum
-// {} hum ye use karta hai nhi to direct
-
-// samjhe ya mai bole ja raha hu ..............

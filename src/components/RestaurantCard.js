@@ -9,7 +9,7 @@ const RestaurantCard = (props) => {
   // const {slaString} = resData?.info.sla;
 
   return (
-    <div className="p-3 m-2 overflow-hidden min-w-max rounded-xl hover:-translate-y-5  hover:scale-90 transition-all ">
+    <div className="p-3 m-2 overflow-hidden max-w-96 rounded-xl hover:-translate-y-5  hover:scale-90 transition-all ">
       <div>
         <img
           className=" rounded-xl h-44 w-60"
@@ -18,14 +18,14 @@ const RestaurantCard = (props) => {
         />
       </div>
 
-      <h3 className="font-bold "> {name}</h3>
+      <p className="font-bold w-60 line-clamp-1"> {name}</p>
       <p className=" flex items-center font-bold">
         <MdStars className="mr-1 text-green-700 font-bold text-2xl " />
         {avgRating} stars &nbsp; <BsDot />
         {sla?.slaString}
       </p>
-      {/* <h4 className=" font-thin"> {costForTwo}</h4> */}
-      <p className=" font-thin w-60"> {cuisines.join(", ")}</p>
+
+      <p className=" font-thin w-60 line-clamp-1"> {cuisines.join(", ")}</p>
     </div>
   );
 };
@@ -35,7 +35,7 @@ export const withRecommendedLabel = (RestaurantCard) => {
   return (props) => {
     return (
       <div>
-        <label className="absolute bg-gray-100 text-black font-semibold rounded-lg border p-1 ">
+        <label className="absolute bg-orange-200 text-black font-semibold rounded-lg border border-white p-1 ">
           Bestseller
         </label>
         <RestaurantCard {...props} />

@@ -1,5 +1,5 @@
 import ItemList from "./ItemList";
-import { IoIosArrowDropdown } from "react-icons/io";
+import { RiArrowDownSLine } from "react-icons/ri";
 
 // ** accordions **
 
@@ -12,7 +12,7 @@ const RestaurantCategory = ({ resInfo, data, showItem, SetShowIndex }) => {
     <div>
       <div className=" shadow-lg w-6/12 mx-auto my-4 text-center ">
         <div
-          className=" flex justify-between cursor-pointer"
+          className=" flex justify-between cursor-pointer py-3 my-2 px-4"
           onClick={handleClick}
         >
           {/* ** accordions header ** */}
@@ -21,7 +21,7 @@ const RestaurantCategory = ({ resInfo, data, showItem, SetShowIndex }) => {
             {data?.title} ({data?.itemCards?.length})
           </span>
           <span>
-            <IoIosArrowDropdown className="text-2xl" />
+            <RiArrowDownSLine className="text-3xl cursor-pointer" />
           </span>
         </div>
 
