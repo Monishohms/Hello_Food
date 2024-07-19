@@ -8,9 +8,9 @@ import { withRecommendedLabel } from "./RestaurantCard";
 import { SWIGGY_API } from "../utils/constants";
 import YourMind from "./YourMind";
 import { CgSearch } from "react-icons/cg";
+import { AiTwotoneRightCircle } from "react-icons/ai";
+import { AiTwotoneLeftCircle } from "react-icons/ai";
 import { IoIosArrowDropupCircle } from "react-icons/io";
-import { TfiArrowCircleRight } from "react-icons/tfi";
-import { TfiArrowCircleLeft } from "react-icons/tfi";
 
 const Body = () => {
   const [allRestaurant, setAllRestaurant] = useState([]); // All Restaurant Data
@@ -73,8 +73,8 @@ const Body = () => {
           {allRestaurant?.data?.cards[0]?.card?.card?.header?.title}
         </h1>
         <span className=" flex items-center justify-end">
-          <TfiArrowCircleLeft className="mr-4 text-3xl cursor-pointer" />
-          <TfiArrowCircleRight className=" text-3xl cursor-pointer" />
+          <AiTwotoneLeftCircle className="mr-4 text-4xl cursor-pointer" />
+          <AiTwotoneRightCircle className=" text-4xl cursor-pointer" />
         </span>
       </span>
 
@@ -93,8 +93,8 @@ const Body = () => {
           {allRestaurant?.data?.cards[1]?.card?.card?.header?.title}
         </h1>
         <span className=" flex items-center justify-end ">
-          <TfiArrowCircleLeft className="mr-4 text-3xl cursor-pointer " />
-          <TfiArrowCircleRight className=" text-3xl cursor-pointer" />
+          <AiTwotoneLeftCircle className="mr-4 text-4xl cursor-pointer  " />
+          <AiTwotoneRightCircle className=" text-4xl cursor-pointer" />
         </span>
       </span>
 

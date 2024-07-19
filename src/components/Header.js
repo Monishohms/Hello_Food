@@ -17,13 +17,13 @@ const Header = () => {
 
   return (
     <div className=" flex justify-between shadow-lg font-semibold  ">
-      <div className="image-container">
+      <div className="image-container pl-28">
         <Link to="/">
-          <img className="  w-52" src={LOGO_URL} />
+          <img className=" pl-10 w-52" src={LOGO_URL} />
         </Link>
       </div>
 
-      <div className=" flex items-center ">
+      <div className=" flex items-center pr-36">
         <React.Fragment>
           <span className=" px-5 flex items-center">
             Internet Status:
