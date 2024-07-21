@@ -63,5 +63,5 @@ Follow these steps to set up and run Food Plaza locally:
 
 ### Author
 
-- **Monish Lal**
-  - Email: monishlal2105@gmail.com
+- Monish Lal
+- Email: monishlal2105@gmail.com
