@@ -37,8 +37,8 @@ const restaurantMenu = () => {
     );
 
   return (
-    <div className="text-center p-6 m-6">
-      <div className="w-8/12 text-center m-auto">
+    <div className="text-center p-6 m-6 ">
+      <div className="lg:w-8/12 text-center m-auto sm:w-auto ">
         <h2 className="font-bold text-3xl ">{name}</h2>
         <p className="font-light flex items-center justify-center">
           <FaStar className="m-1 text-green-700" />
@@ -48,13 +48,13 @@ const restaurantMenu = () => {
         <p className="font-light flex items-center justify-center">
           <img
             src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_25,h_25/equitable_serviceability/es-icons/es-location-icon.png"
-            className="m-1"
+            className="m-1 "
           />
           {locality}
         </p>
       </div>
       <hr className="w-6/12 m-auto p-1 " />
-      <div className="w-8/12 text-center flex justify-center items-center">
+      <div className="w-8/12 text-center flex justify-center items-center sm:m-auto lg:m-0">
         <span className="font-bold flex items-center ">
           <RiMoneyRupeeCircleLine className="m-1 text-2xl " />
           {costForTwo / 100}/-
@@ -71,11 +71,11 @@ const restaurantMenu = () => {
       <div className="w-6/12 text-center m-auto p-2 ">
         <img
           src={CDN_URL + cloudinaryImageId}
-          className=" rounded-xl h-52 w-60 "
+          className=" rounded-xl h-52 w-60 sm:m-auto lg:m-0"
         />
       </div>
 
-      <div id="res-menu-off" className="m-auto">
+      <div id="res-menu-off" className="m-auto lg:w-6/12 sm:w-screen">
         {resInfo?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.offers?.map(
           (offers, idx) => {
             return (

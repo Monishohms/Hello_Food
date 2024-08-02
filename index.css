@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+#mindItem {
+  animation-name: anime;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes anime {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
 :root {
   scroll-behavior: smooth;
 }
@@ -37,7 +52,6 @@ body::-webkit-scrollbar-thumb,
 
 #res-menu-off {
   overflow: scroll;
-  width: 50%;
   display: flex;
   gap: 20px;
   justify-content: start;

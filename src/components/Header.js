@@ -16,16 +16,16 @@ const Header = () => {
   const itemCart = useSelector((store) => store.cart.items);
 
   return (
-    <div className=" flex justify-between shadow-lg font-semibold  ">
-      <div className="image-container pl-28">
+    <div className=" flex justify-between shadow-lg font-semibold lg:w-screen sm:w-max ">
+      <div className="image-container lg:pl-28 ">
         <Link to="/">
-          <img className=" pl-10 w-52" src={LOGO_URL} />
+          <img className=" lg:pl-10 w-52 " src={LOGO_URL} />
         </Link>
       </div>
 
-      <div className=" flex items-center pr-36">
+      <div className=" flex items-center lg:pr-36 ">
         <React.Fragment>
-          <span className=" px-5 flex items-center">
+          <span className=" px-5 flex items-center  ">
             Internet Status:
             {onlineStatus ? (
               <FaRegCircleCheck className="m-1 text-green-600 text-xl" />
@@ -48,7 +48,7 @@ const Header = () => {
             <span className=" px-4   hover:text-orange-600">
               <Link to="/cart" className="flex items-center ">
                 {itemCart.length != 0 && (
-                  <span class="flex h-2 w-2 items-center justify-center rounded-full bg-orange-500 p-2 text-xs text-white absolute top-[5%] left-[89%]">
+                  <span class="flex h-2 w-2 items-center justify-center rounded-full bg-orange-500 p-2 text-xs text-white absolute top-[4%] left-[78%]">
                     {itemCart.length}
                   </span>
                 )}

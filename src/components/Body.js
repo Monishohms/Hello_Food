@@ -67,18 +67,18 @@ const Body = () => {
   return listOfRestaurants?.length == 0 ? (
     <Shimmer />
   ) : (
-    <div className="w-9/12 m-auto">
-      <span className="flex items-center justify-between mt-4">
-        <h1 className=" font-bold text-2xl p-4">
+    <div className="lg:w-9/12 m-auto ">
+      <span className="flex items-center justify-between mt-4 sm:px-6 lg:px-0 ">
+        <h1 className=" font-bold text-2xl p-4 ">
           {allRestaurant?.data?.cards[0]?.card?.card?.header?.title}
         </h1>
-        <span className=" flex items-center justify-end">
+        <span className=" flex items-center justify-end ">
           <AiTwotoneLeftCircle className="mr-4 text-4xl cursor-pointer" />
           <AiTwotoneRightCircle className=" text-4xl cursor-pointer" />
         </span>
       </span>
 
-      <div className="overflow-x-scroll  no-scrollbar-custom  flex w-[100%]">
+      <div className="overflow-x-auto flex w-[100%] ">
         {mind?.map((e) => (
           <YourMind
             imageId={e?.imageId}
@@ -88,8 +88,8 @@ const Body = () => {
         ))}
       </div>
       <hr className="topBrandHr" />
-      <span className="flex items-center justify-between mt-10">
-        <h1 className=" font-bold text-2xl p-4 cursor-pointer">
+      <span className="flex items-center justify-between mt-10 sm:px-6 lg:px-0">
+        <h1 className=" font-bold text-2xl p-4 cursor-pointer ">
           {allRestaurant?.data?.cards[1]?.card?.card?.header?.title}
         </h1>
         <span className=" flex items-center justify-end ">
@@ -98,7 +98,7 @@ const Body = () => {
         </span>
       </span>
 
-      <div className="flex overflow-x-scroll  no-scrollbar-custom  w-[100%] mb-12">
+      <div className="flex overflow-x-scroll  no-scrollbar-custom  w-[100%] mb-12 ">
         {restaurantChain?.map((e) => (
           <Link to={"/restaurant/" + e?.info?.id}>
             <RestaurantCard resData={e} />
@@ -107,16 +107,16 @@ const Body = () => {
       </div>
       <hr className="topBrandHr" />
 
-      <p className=" font-bold text-2xl p-4">
+      <p className=" font-bold text-2xl p-4 sm:px-6 lg:px-0">
         {allRestaurant?.data?.cards[2]?.card?.card?.title}
       </p>
 
-      <div className="flex items-center ">
-        <div className="flex items-center rounded-xl  mr-2 ">
+      <div className="lg:flex items-center ">
+        <div className="flex items-center rounded-xl mr-2 sm:justify-center sm:my-4">
           <input
             type="text"
             placeholder="Search Restaurant..."
-            className="p-2 rounded-l-xl px-10   text-center w-full shadow-lg outline-none border-orange-500 "
+            className="p-2 rounded-l-xl px-10 sm:shadow-orange-500 w-auto  text-center shadow-lg outline-none  "
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
@@ -136,135 +136,133 @@ const Body = () => {
           </button>
         </div>
 
-        <div>
-          <button
-            className="px-4 py-2 m-4 mr-2 font-medium border rounded-xl shadow-lg  flex items-center focus:border-black"
-            onClick={() => {
-              if (filter == "top") {
-                setFilter("null");
-                setFilteredfRestaurants(listOfRestaurants);
-              } else {
-                const filteredList = listOfRestaurants?.filter(
-                  (res) => res.info.avgRating >= 4.4
-                );
-                setFilteredfRestaurants(filteredList);
-                setFilter("top");
-              }
-            }}
-          >
-            Ratings 4.4+
-            {filter === "top" && <IoClose className=" m-1 cursor-pointer " />}
-          </button>
-        </div>
-
-        <div>
-          <button
-            className="px-4 py-2 m-4 mr-2 font-medium border rounded-xl shadow-lg flex items-center focus:border-black"
-            onClick={() => {
-              if (filter == "fast") {
-                setFilter("null");
-                setFilteredfRestaurants(listOfRestaurants);
-              } else {
-                const filteredList = listOfRestaurants?.filter(
-                  (res) => res?.info?.sla?.deliveryTime <= 30
-                );
-                setFilteredfRestaurants(filteredList);
-                setFilter("fast");
-              }
-            }}
-          >
-            Fast Delivery
-            {filter === "fast" && <IoClose className="  m-1 " />}
-          </button>
-        </div>
-
-        <div>
-          <button
-            className="px-4 py-2 m-4 mr-2  font-medium border  rounded-xl shadow-lg focus:border-black flex items-center "
-            onClick={() => {
-              if (filter == "lessthan") {
-                setFilter("null");
-                setFilteredfRestaurants(listOfRestaurants);
-              } else {
-                const filteredList = listOfRestaurants?.filter(
-                  (res) =>
-                    res?.info?.costForTwo?.includes("100") ||
-                    res?.info?.costForTwo?.includes("125") ||
-                    res?.info?.costForTwo?.includes("150") ||
-                    res?.info?.costForTwo?.includes("175") ||
-                    res?.info?.costForTwo?.includes("200") ||
-                    res?.info?.costForTwo?.includes("225") ||
-                    res?.info?.costForTwo?.includes("250") ||
-                    res?.info?.costForTwo?.includes("275") ||
-                    res?.info?.costForTwo?.includes("300")
-                );
-                setFilteredfRestaurants(filteredList);
-                setFilter("lessthan");
-              }
-            }}
-          >
-            Less than Rs.300
-            {filter === "lessthan" && <IoClose className="  m-1 " />}
-          </button>
-        </div>
-
-        <div>
-          <button
-            className="px-4 py-2 m-4 mr-2 font-medium border  rounded-xl shadow-lg focus:border-black flex items-center "
-            onClick={() => {
-              if (filter == "300to600") {
-                setFilter("null");
-                setFilteredfRestaurants(listOfRestaurants);
-              } else {
-                const filteredList = listOfRestaurants?.filter(
-                  (res) =>
-                    res?.info?.costForTwo?.includes("300") ||
-                    res?.info?.costForTwo?.includes("325") ||
-                    res?.info?.costForTwo?.includes("350") ||
-                    res?.info?.costForTwo?.includes("375") ||
-                    res?.info?.costForTwo?.includes("400") ||
-                    res?.info?.costForTwo?.includes("425") ||
-                    res?.info?.costForTwo?.includes("450") ||
-                    res?.info?.costForTwo?.includes("475") ||
-                    res?.info?.costForTwo?.includes("500") ||
-                    res?.info?.costForTwo?.includes("525") ||
-                    res?.info?.costForTwo?.includes("550") ||
-                    res?.info?.costForTwo?.includes("575") ||
-                    res?.info?.costForTwo?.includes("600")
-                );
-                setFilteredfRestaurants(filteredList);
-                setFilter("300to600");
-              }
-            }}
-          >
-            Rs.300-Rs.600
-            {filter === "300to600" && <IoClose className="  m-1 " />}
-          </button>
-        </div>
-
-        <div>
-          <button
-            className="px-4 py-2 m-4 mr-2 font-medium border  rounded-xl shadow-lg  flex items-center focus:border-black"
-            onClick={() => {
-              if (filter == "hot") {
-                setFilter("null");
-                setFilteredfRestaurants(listOfRestaurants);
-              } else {
-                const filteredList = listOfRestaurants?.filter((res) =>
-                  res?.info?.aggregatedDiscountInfoV3?.header?.includes("OFF")
-                );
-                setFilteredfRestaurants(filteredList);
-                setFilter("hot");
-              }
-            }}
-          >
-            Hot Offers
-            {filter === "hot" && <IoClose className=" m-1 " />}
-          </button>
+        <div className="flex items-center w-max  ">
+          <div>
+            <button
+              className="px-4 py-2 m-4 mr-2 sm:font-bold lg:font-medium border rounded-xl shadow-lg  flex items-center focus:border-black"
+              onClick={() => {
+                if (filter == "top") {
+                  setFilter("null");
+                  setFilteredfRestaurants(listOfRestaurants);
+                } else {
+                  const filteredList = listOfRestaurants?.filter(
+                    (res) => res.info.avgRating >= 4.4
+                  );
+                  setFilteredfRestaurants(filteredList);
+                  setFilter("top");
+                }
+              }}
+            >
+              Ratings 4.4+
+              {filter === "top" && <IoClose className=" m-1 cursor-pointer " />}
+            </button>
+          </div>
+          <div>
+            <button
+              className="px-4 py-2 m-4 mr-2 sm:font-bold lg:font-medium border rounded-xl shadow-lg flex items-center focus:border-black"
+              onClick={() => {
+                if (filter == "fast") {
+                  setFilter("null");
+                  setFilteredfRestaurants(listOfRestaurants);
+                } else {
+                  const filteredList = listOfRestaurants?.filter(
+                    (res) => res?.info?.sla?.deliveryTime <= 30
+                  );
+                  setFilteredfRestaurants(filteredList);
+                  setFilter("fast");
+                }
+              }}
+            >
+              Fast Delivery
+              {filter === "fast" && <IoClose className="  m-1 " />}
+            </button>
+          </div>
+          <div>
+            <button
+              className="px-4 py-2 m-4 mr-2 sm:font-bold lg:font-medium border  rounded-xl shadow-lg focus:border-black flex items-center "
+              onClick={() => {
+                if (filter == "lessthan") {
+                  setFilter("null");
+                  setFilteredfRestaurants(listOfRestaurants);
+                } else {
+                  const filteredList = listOfRestaurants?.filter(
+                    (res) =>
+                      res?.info?.costForTwo?.includes("100") ||
+                      res?.info?.costForTwo?.includes("125") ||
+                      res?.info?.costForTwo?.includes("150") ||
+                      res?.info?.costForTwo?.includes("175") ||
+                      res?.info?.costForTwo?.includes("200") ||
+                      res?.info?.costForTwo?.includes("225") ||
+                      res?.info?.costForTwo?.includes("250") ||
+                      res?.info?.costForTwo?.includes("275") ||
+                      res?.info?.costForTwo?.includes("300")
+                  );
+                  setFilteredfRestaurants(filteredList);
+                  setFilter("lessthan");
+                }
+              }}
+            >
+              Less than Rs.300
+              {filter === "lessthan" && <IoClose className="  m-1 " />}
+            </button>
+          </div>
+          <div>
+            <button
+              className="px-4 py-2 m-4 mr-2 sm:font-bold lg:font-medium border  rounded-xl shadow-lg focus:border-black flex items-center "
+              onClick={() => {
+                if (filter == "300to600") {
+                  setFilter("null");
+                  setFilteredfRestaurants(listOfRestaurants);
+                } else {
+                  const filteredList = listOfRestaurants?.filter(
+                    (res) =>
+                      res?.info?.costForTwo?.includes("300") ||
+                      res?.info?.costForTwo?.includes("325") ||
+                      res?.info?.costForTwo?.includes("350") ||
+                      res?.info?.costForTwo?.includes("375") ||
+                      res?.info?.costForTwo?.includes("400") ||
+                      res?.info?.costForTwo?.includes("425") ||
+                      res?.info?.costForTwo?.includes("450") ||
+                      res?.info?.costForTwo?.includes("475") ||
+                      res?.info?.costForTwo?.includes("500") ||
+                      res?.info?.costForTwo?.includes("525") ||
+                      res?.info?.costForTwo?.includes("550") ||
+                      res?.info?.costForTwo?.includes("575") ||
+                      res?.info?.costForTwo?.includes("600")
+                  );
+                  setFilteredfRestaurants(filteredList);
+                  setFilter("300to600");
+                }
+              }}
+            >
+              Rs.300-Rs.600
+              {filter === "300to600" && <IoClose className="  m-1 " />}
+            </button>
+          </div>
+          <div>
+            <button
+              className="px-4 py-2 m-4 mr-2 sm:font-bold lg:font-medium border  rounded-xl shadow-lg  flex items-center focus:border-black"
+              onClick={() => {
+                if (filter == "hot") {
+                  setFilter("null");
+                  setFilteredfRestaurants(listOfRestaurants);
+                } else {
+                  const filteredList = listOfRestaurants?.filter((res) =>
+                    res?.info?.aggregatedDiscountInfoV3?.header?.includes("OFF")
+                  );
+                  setFilteredfRestaurants(filteredList);
+                  setFilter("hot");
+                }
+              }}
+            >
+              Hot Offers
+              {filter === "hot" && <IoClose className=" m-1 " />}
+            </button>
+          </div>
         </div>
       </div>
 
-      <div className="flex flex-wrap cursor-pointer ">
+      <div className="flex flex-wrap cursor-pointer sm:justify-evenly md:justify-evenly lg:justify-normal  ">
         {filteredRestaurants?.map((restaurant) => (
           <Link
             key={restaurant.info.id}
