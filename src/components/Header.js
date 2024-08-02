@@ -16,7 +16,7 @@ const Header = () => {
   const itemCart = useSelector((store) => store.cart.items);
 
   return (
-    <div className=" flex justify-between shadow-lg font-semibold lg:w-screen sm:w-max ">
+    <div className=" flex justify-between shadow-lg font-semibold lg:w-screen sm:w-max  w-max">
       <div className="image-container lg:pl-28 ">
         <Link to="/">
           <img className=" lg:pl-10 md:pl-10 w-52 " src={LOGO_URL} />
