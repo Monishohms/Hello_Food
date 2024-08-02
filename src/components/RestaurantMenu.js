@@ -38,7 +38,7 @@ const restaurantMenu = () => {
 
   return (
     <div className="text-center p-6 m-6 ">
-      <div className="lg:w-8/12 text-center m-auto sm:w-auto ">
+      <div className="md:max-lg:w-8/12 text-center m-auto sm:w-auto ">
         <h2 className="font-bold text-3xl ">{name}</h2>
         <p className="font-light flex items-center justify-center">
           <FaStar className="m-1 text-green-700" />
@@ -54,7 +54,7 @@ const restaurantMenu = () => {
         </p>
       </div>
       <hr className="w-6/12 m-auto p-1 " />
-      <div className="w-8/12 text-center flex justify-center items-center sm:m-auto lg:m-0">
+      <div className="w-8/12 text-center flex justify-center items-center sm:max-md:m-auto lg:m-0">
         <span className="font-bold flex items-center ">
           <RiMoneyRupeeCircleLine className="m-1 text-2xl " />
           {costForTwo / 100}/-
