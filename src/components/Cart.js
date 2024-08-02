@@ -39,11 +39,11 @@ const Cart = () => {
         <IoIosArrowDropupCircle className="text-5xl text-orange-500 cursor-pointer" />
       </a>
       {cartItem?.restaurant != null && (
-        <h1 className="text-4xl font-bold mb-2 sm:max-md:w-screen">Cart</h1>
+        <h1 className="text-4xl font-bold mb-2 sm:max-lg:w-screen">Cart</h1>
       )}
 
       {cartItem?.restaurant != null ? (
-        <div className="shadow-2xl m-2 p-2 rounded-xl border shadow-orange-500 sm:max-md:w-screen">
+        <div className="shadow-2xl m-2 p-2 rounded-xl border shadow-orange-500 sm:max-lg:w-screen">
           <Link to={"/restaurant/" + cartItem?.restaurant?.id}>
             <div className="pr-4 flex flex-row ml-6 mt-6">
               <img
