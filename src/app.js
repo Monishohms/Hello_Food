@@ -16,6 +16,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Cart from "./components/Cart";
 import Login from "./components/Login";
+import Footer from "./components/Footer";
 
 const About = lazy(() => import("./components/About")); // Lazy Loading of components
 const ContactUs = lazy(() => import("./components/ContactUs"));
@@ -26,6 +27,7 @@ const AppLayout = () => {
       <div className="app">
         <Header />
         <Outlet />
+
         <ToastContainer />
       </div>
     </Provider>

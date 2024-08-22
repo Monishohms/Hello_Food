@@ -2,7 +2,6 @@ import { LOGO_URL } from "../utils/constants";
 import { useState } from "react";
 import { FaRegUser } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "../utils/useOnlineStatus";
 import { TbPokeball } from "react-icons/tb";
 import { TiContacts } from "react-icons/ti";
 import { FaRegCircleCheck } from "react-icons/fa6";
@@ -12,7 +11,6 @@ import { useSelector } from "react-redux";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
-  const onlineStatus = useOnlineStatus();
   const itemCart = useSelector((store) => store.cart.items);
 
   return (
@@ -25,14 +23,6 @@ const Header = () => {
 
       <div className=" flex items-center lg:pr-36 ">
         <React.Fragment>
-          <span className=" px-5 flex items-center  ">
-            Internet Status:
-            {onlineStatus ? (
-              <FaRegCircleCheck className="m-1 text-green-600 text-xl" />
-            ) : (
-              <FaRegCircleXmark className="m-1 text-red-600 text-xl" />
-            )}
-          </span>
           <span className=" px-5   hover:text-orange-600">
             <Link to="/About" className="flex items-center">
               <TbPokeball className="m-1 text-2xl" /> About
