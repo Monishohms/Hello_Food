@@ -4,8 +4,6 @@ import { FaRegUser } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { TbPokeball } from "react-icons/tb";
 import { TiContacts } from "react-icons/ti";
-import { FaRegCircleCheck } from "react-icons/fa6";
-import { FaRegCircleXmark } from "react-icons/fa6";
 import { useSelector } from "react-redux";
 import { useSelector } from "react-redux";
 
@@ -38,7 +36,7 @@ const Header = () => {
             <span className=" px-4   hover:text-orange-600">
               <Link to="/cart" className="flex items-center ">
                 {itemCart.length != 0 && (
-                  <span class="flex h-2 w-2 items-center justify-center rounded-full bg-orange-500 p-2 text-xs text-white absolute top-[4%] left-[78%]">
+                  <span class="flex h-2 w-2 items-center justify-center rounded-full bg-orange-500 p-2 text-xs text-white absolute top-[3%] left-[80%]">
                     {itemCart.length}
                   </span>
                 )}

@@ -14,7 +14,7 @@ const About = () => {
         </p>
       </div>
 
-      <div className=" text-center py-8 ">
+      <div className=" text-center py-6 ">
         <h1 className="py-8 text-5xl font-semibold">
           What’s In Store For The Future?
         </h1>
