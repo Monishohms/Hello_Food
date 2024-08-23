@@ -23,20 +23,10 @@ const ItemList = ({ resInfo, item }) => {
 
   const increaseItem = (i) => {
     dispatch(increaseCount(i));
-    toast.success("Item added", {
-      position: "top-center",
-      autoClose: 500,
-      theme: "dark",
-    });
   };
 
   const decreaseItem = (i) => {
     dispatch(decreaseCount(i));
-    toast.success("Item removed", {
-      position: "top-center",
-      autoClose: 500,
-      theme: "dark",
-    });
   };
 
   return (
