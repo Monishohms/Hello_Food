@@ -11,6 +11,7 @@ import { AiTwotoneRightCircle } from "react-icons/ai";
 import { AiTwotoneLeftCircle } from "react-icons/ai";
 import { IoIosArrowDropupCircle } from "react-icons/io";
 import Footer from "./Footer";
+import search_banner from "../images/search_banner.jpg";
 
 const Body = () => {
   const [allRestaurant, setAllRestaurant] = useState([]); // All Restaurant Data
@@ -105,8 +106,9 @@ const Body = () => {
       </div>
       <div className="w-screen h-80 relative mt-4">
         <img
-          src="https://foodadda.namratachandarana.in/search_banner.f7ef6ed4.jpg"
+          src={search_banner}
           className="w-full h-full shadow-lg"
+          alt="search-banner img"
         />
         <div className=" translate-x-[-50%] translate-y-[-50%] absolute top-[50%] left-[50%] w-full h-80 bg-black bg-opacity-30">
           <p className="mt-24 text-4xl font-bold text-white text-center ">

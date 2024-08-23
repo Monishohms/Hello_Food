@@ -9,6 +9,7 @@ import { FaStar } from "react-icons/fa";
 import RestaurantMenuOffer from "./RestaurantMenuOffer";
 import { RiMoneyRupeeCircleLine } from "react-icons/ri";
 import Footer from "./Footer";
+import { MdOutlineRestaurantMenu } from "react-icons/md";
 
 const restaurantMenu = () => {
   const [showIndex, setShowIndex] = useState(0); // to show the accordions.
@@ -86,6 +87,10 @@ const restaurantMenu = () => {
             }
           )}
         </div>
+        <p className="my-4 text-xl font-bold flex items-center justify-center">
+          <MdOutlineRestaurantMenu className="mr-4 my-4 text-orange-500" /> Menu
+          <MdOutlineRestaurantMenu className="ml-4 my-4 text-orange-500" />
+        </p>
 
         {/* accordions catagories */}
 
