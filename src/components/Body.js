@@ -63,7 +63,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div>
-      <div className="lg:w-10/12 w-screen lg:m-auto">
+      <div className="lg:w-10/12 w-screen lg:m-auto ">
         <span className="flex items-center justify-between mt-4 sm:px-6 lg:px-0 ">
           <h1 className=" font-bold text-2xl p-4 ">
             {allRestaurant?.data?.cards[0]?.card?.card?.header?.title}
@@ -74,7 +74,7 @@ const Body = () => {
           </span>
         </span>
 
-        <span className="overflow-x-auto flex w-[100%] m-auto">
+        <span className="overflow-x-auto  flex w-[100%] m-auto ">
           {mind?.map((e) => (
             <YourMind
               imageId={e?.imageId}
@@ -102,9 +102,8 @@ const Body = () => {
             </Link>
           ))}
         </div>
-        <hr className="topBrandHr" />
       </div>
-      <div className="w-screen h-80 relative">
+      <div className="w-screen h-80 relative mt-4">
         <img
           src="https://foodadda.namratachandarana.in/search_banner.f7ef6ed4.jpg"
           className="w-full h-full shadow-lg"
@@ -131,8 +130,6 @@ const Body = () => {
                 setFilteredfRestaurants(filteredRestaurant);
               }}
             >
-              {/*Filter the RestaurantCard and update the util
-                    for that we need search text */}
               <CgSearch className="text-3xl m-1" />
             </button>
           </div>
@@ -144,7 +141,7 @@ const Body = () => {
           {allRestaurant?.data?.cards[2]?.card?.card?.title}
         </p>
         <div className="lg:flex items-center ">
-          <div className="flex items-center w-max  ">
+          <div className="flex items-center w-max">
             <div>
               <button
                 className="px-4 py-2 m-4 mr-2 sm:font-bold lg:font-medium border rounded-xl shadow-lg  flex items-center focus:border-black"
@@ -275,7 +272,7 @@ const Body = () => {
         </div>
 
         <div className="flex flex-wrap cursor-pointer sm:justify-evenly md:justify-evenly lg:justify-normal  ">
-          {restaurantChain?.map((restaurant) => (
+          {filteredRestaurants?.map((restaurant) => (
             <Link
               key={restaurant.info.id}
               to={"/restaurant/" + restaurant.info.id}

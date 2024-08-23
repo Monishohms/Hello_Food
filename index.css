@@ -17,11 +17,23 @@
     transform: translateX(-100%);
   }
 }
+
 :root {
   scroll-behavior: smooth;
 }
 
-.no-scrollbar-custom::-webkit-scrollbar,
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* .no-scrollbar-custom::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none;
 }
@@ -29,7 +41,7 @@ body::-webkit-scrollbar {
 .no-scrollbar-custom {
   -ms-overflow-style: none;
   scrollbar-width: none;
-}
+} */
 
 *::-webkit-scrollbar {
   display: none !important;
