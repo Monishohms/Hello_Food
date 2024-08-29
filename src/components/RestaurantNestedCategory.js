@@ -13,7 +13,7 @@ const RestaurantNestedCategory = ({
 
   return (
     <div>
-      <div className="shadow-lg lg:w-6/12 mx-auto my-4 text-center sm:w-screen">
+      <div className="shadow-lg lg:w-8/12 mx-auto my-4 text-center sm:w-screen">
         <div
           className="flex justify-between cursor-pointer py-3 my-2 px-4"
           onClick={handleClick}

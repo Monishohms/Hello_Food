@@ -104,7 +104,7 @@ const ItemList = ({ resInfo, item }) => {
                 (item) => item[0]?.id == i?.card?.info?.id
               ).length == 0 ? (
                 <button
-                  className=" text-orange-500 font-bold bg-white px-9 py-1.5 rounded-xl cursor-pointer my-36  mx-8 border hover:bg-gray-200"
+                  className=" text-orange-500 font-bold bg-white px-9 py-1.5 rounded-xl cursor-pointer my-36  mx-16 border hover:bg-gray-200"
                   onClick={() => {
                     dispatch(() => {
                       addFood(i?.card?.info);
@@ -114,7 +114,7 @@ const ItemList = ({ resInfo, item }) => {
                   ADD
                 </button>
               ) : (
-                <span className="flex items-center justify-evenly text-orange-500 font-bold bg-white px-4 py-1.5 rounded-xl my-36 mx-8 border">
+                <span className="flex items-center justify-evenly text-orange-500 font-bold bg-white px-4 py-1.5 rounded-xl my-36 mx-16 border">
                   <button
                     className="cursor-pointer  "
                     onClick={() => {

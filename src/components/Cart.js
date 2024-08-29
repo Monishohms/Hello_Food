@@ -37,7 +37,7 @@ const Cart = () => {
   return (
     <div>
       <div className="w-8/12  text-center  lg:px-48 py-10 m-auto ">
-        <a href="#" className="fixed bottom-0 right-0 m-12">
+        <a href="#" className="fixed bottom-[5%] right-0 m-12">
           <IoIosArrowDropupCircle className="text-5xl text-orange-500 cursor-pointer" />
         </a>
         {cartItem?.restaurant != null && (
