@@ -12,14 +12,14 @@ const Header = () => {
   const itemCart = useSelector((store) => store.cart.items);
 
   return (
-    <div className=" flex justify-between shadow-lg font-semibold lg:w-screen sm:w-max  w-max">
-      <div className="image-container lg:pl-28 ">
+    <div className=" flex justify-between shadow-lg font-semibold w-screen ">
+      <div className="image-container pl-28 ">
         <Link to="/">
-          <img className=" lg:pl-10 md:pl-10 w-52 " src={LOGO_URL} />
+          <img className=" pl-10 w-52 " src={LOGO_URL} />
         </Link>
       </div>
 
-      <div className=" flex items-center lg:pr-36 ">
+      <div className=" flex items-center pr-36 ">
         <React.Fragment>
           <span className=" px-5   hover:text-orange-600">
             <Link to="/About" className="flex items-center">

@@ -64,8 +64,8 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div>
-      <div className="lg:w-10/12 w-screen lg:m-auto ">
-        <span className="flex items-center justify-between mt-4 sm:px-6 lg:px-0 ">
+      <div className="lg:w-10/12 lg:m-auto ">
+        <span className="flex items-center justify-between mt-4 px-0 ">
           <h1 className=" font-bold text-2xl p-4 ">
             {allRestaurant?.data?.cards[0]?.card?.card?.header?.title}
           </h1>
@@ -86,8 +86,8 @@ const Body = () => {
         </span>
 
         <hr className="topBrandHr" />
-        <span className="flex items-center justify-between mt-10 sm:px-6 lg:px-0">
-          <h1 className=" font-bold text-2xl p-2 cursor-pointer ">
+        <span className="flex items-center justify-between mt-10 px-0">
+          <h1 className=" font-bold text-2xl p-2 cursor-pointer">
             {allRestaurant?.data?.cards[1]?.card?.card?.header?.title}
           </h1>
           <span className=" flex items-center justify-end ">
@@ -114,7 +114,7 @@ const Body = () => {
           <p className="mt-24 text-4xl font-bold text-white text-center ">
             Find dining options in Chennai
           </p>
-          <div className="flex items-center rounded-xl mr-2 sm:justify-center sm:my-4">
+          <div className="flex items-center rounded-xl mr-2 justify-center mt-6">
             <input
               type="text"
               placeholder="Search Restaurant..."
@@ -138,11 +138,11 @@ const Body = () => {
         </div>
       </div>
 
-      <div className="lg:w-10/12 w-screen lg:m-auto">
+      <div className="w-10/12 m-auto">
         <p className=" font-bold text-2xl p-4 px-6 ">
           {allRestaurant?.data?.cards[2]?.card?.card?.title}
         </p>
-        <div className="lg:flex items-center ">
+        <div className="flex items-center ">
           <div className="flex items-center w-max">
             <div>
               <button
@@ -168,7 +168,7 @@ const Body = () => {
             </div>
             <div>
               <button
-                className="px-4 py-2 m-4 mr-2 sm:font-bold lg:font-medium border rounded-xl shadow-lg flex items-center focus:border-black"
+                className="px-4 py-2 m-4 mr-2 font-medium border rounded-xl shadow-lg flex items-center focus:border-black"
                 onClick={() => {
                   if (filter == "fast") {
                     setFilter("null");
@@ -273,7 +273,7 @@ const Body = () => {
           </div>
         </div>
 
-        <div className="flex flex-wrap cursor-pointer sm:justify-evenly md:justify-evenly lg:justify-normal  ">
+        <div className="flex flex-wrap cursor-pointer justify-normal  ">
           {filteredRestaurants?.map((restaurant) => (
             <Link
               key={restaurant.info.id}
